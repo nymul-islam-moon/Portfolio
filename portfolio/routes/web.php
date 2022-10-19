@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 Route::controller(HomeController::class)->prefix('home')->group(function () {
     Route::get('/index', 'index')->name('admin.home.index');
+    Route::post('/submit', 'submit')->name('admin.home.submit');
 });

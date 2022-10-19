@@ -328,6 +328,7 @@
             </div><!-- Side Header Inner End -->
         </div><!-- Side Header End -->
 
+
         <!-- Content Body Start -->
         <div class="content-body">
 
@@ -347,47 +348,87 @@
                 <div class="box">
 
                     <div class="box-body">
-                        <form>
+                        <form action="{{ route('admin.home.submit') }}" method="post">
+                            @csrf
                             <div class="row mbn-20">
 
                                 <div class="col-6 mb-20">
                                     <label for="formLayoutUsername4">First Name</label>
-                                    <input type="text" id="formLayoutUsername4" class="form-control" placeholder="First Name">
+                                    <input type="text" id="formLayoutUsername4" name="first_name" class="form-control" placeholder="First Name">
+                                    @error('first_name')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="col-6 mb-20">
                                     <label for="formLayoutUsername4">Last Name</label>
-                                    <input type="text" id="formLayoutUsername4" class="form-control" placeholder="Last Name">
+                                    <input type="text" id="formLayoutUsername4" name="last_name" class="form-control" placeholder="Last Name">
+                                    @error('last_name')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="col-6 mb-20">
-                                    <label for="formLayoutEmail4">Title</label>
-                                    <input type="email" id="formLayoutEmail4" class="form-control" placeholder="Title">
+                                    <label for="title">Title</label>
+                                    <input type="text" id="title" name="title" class="form-control" placeholder="Title">
+                                    @error('title')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="col-6 mb-20">
-                                    <label for="formLayoutEmail4">Email Address</label>
-                                    <input type="email" id="formLayoutEmail4" class="form-control" placeholder="Email">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                                    @error('email')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="col-6 mb-20">
-                                    <label for="formLayoutEmail4">Phone Number</label>
-                                    <input type="email" id="formLayoutEmail4" class="form-control" placeholder="Phone Number">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="phone" id="phone" name="phone" class="form-control" placeholder="Phone Number">
+                                    @error('phone')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="col-6 mb-20">
                                     <label for="formLayoutEmail4">Hire Me</label>
-                                    <input type="url" id="formLayoutEmail4" class="form-control" placeholder="Hire Me">
+                                    <input type="url" id="formLayoutEmail4" name="hire_me" class="form-control" placeholder="Hire Me">
+                                    @error('hire_me')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="col-6 mb-20">
                                     <label for="formLayoutFile2">Upload a File</label>
-                                    <div class="dropify-wrapper"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input type="file" id="formLayoutFile2" class="dropify"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div>
+                                    <input type="file" name="cv" class="form-control">
+                                    @error('cv')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
-
                                 <div class="col-6 mb-20">
                                     <label for="formLayoutFile2">Upload a File</label>
-                                    <div class="dropify-wrapper has-preview"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader" style="display: none;"></div><div class="dropify-errors-container"><ul></ul></div><input class="dropify" type="file" data-default-file="{{ asset('admin/images/error/error-2.png') }}"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview" style="display: block;"><span class="dropify-render"><img src="{{ asset('admin/images/error/error-2.png') }}"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner">error-2.png</span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div>
+                                    <input type="file" name="avatar" class="form-control">
+                                    @error('avatar')
+                                        <div class="alert alert-outline-secondary" role="alert">
+                                            <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
 
