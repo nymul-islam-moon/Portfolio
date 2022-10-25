@@ -24,14 +24,31 @@ class HomeRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'title' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'hire_me' => 'required',
-            'cv' => 'required',
-            'avatar' => 'required',
+            'first_name' => [
+                'required',
+                'string',
+                'max:15',
+            ],
+            'last_name' => [
+                'required',
+                'string',
+                'max:10',
+            ],
+            'title' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'max:50',
+                // 'unique:home,email',
+            ],
+            'phone' => [
+                'required',
+                'digits:11',
+            ],
         ];
     }
 
@@ -43,9 +60,6 @@ class HomeRequest extends FormRequest
             'title.required' => 'Title is required',
             'email.required' => 'Email is required',
             'phone.required' => 'Phone number is required',
-            'hire_me.required' => 'Hire link is required',
-            'cv.required' => 'Please insert your CV',
-            'avatar.required' => 'Please insert your avatar',
         ];
     }
 }
