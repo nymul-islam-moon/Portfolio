@@ -43,11 +43,12 @@ class HomeRequest extends FormRequest
                 'required',
                 'email',
                 'max:50',
-                // 'unique:home,email',
+                'unique:home,email',
             ],
             'phone' => [
                 'required',
                 'digits:11',
+                'unique:home,phone',
             ],
         ];
     }

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admin Dashboard - {{ $home->first_name . " " . $home->last_name}}</title>
+    <title>Admin Dashboard - {{ isset($home->first_name) ? $home->first_name . " " . $home->last_name : 'LEE'}}</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -354,7 +354,7 @@
 
                                 <div class="col-6 mb-20">
                                     <label for="formLayoutUsername4">First Name</label>
-                                    <input type="text" id="formLayoutUsername4" name="first_name" class="form-control" value="{{ $home->first_name }}" placeholder="First Name">
+                                    <input type="text" id="formLayoutUsername4" name="first_name" class="form-control" value="{{ isset($home->first_name) ? $home->first_name : 'Enter Your First Name' }}" placeholder="First Name">
                                     @error('first_name')
                                         <div class="alert alert-outline-secondary" role="alert">
                                             <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
@@ -364,7 +364,7 @@
 
                                 <div class="col-6 mb-20">
                                     <label for="formLayoutUsername4">Last Name</label>
-                                    <input type="text" id="formLayoutUsername4" name="last_name" class="form-control" value="{{ $home->last_name }}" placeholder="Last Name">
+                                    <input type="text" id="formLayoutUsername4" name="last_name" class="form-control" value="{{ isset($home->last_name) ? $home->last_name : 'Enter Your Last Name' }}" placeholder="Last Name">
                                     @error('last_name')
                                         <div class="alert alert-outline-secondary" role="alert">
                                             <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
@@ -374,7 +374,7 @@
 
                                 <div class="col-6 mb-20">
                                     <label for="title">Title</label>
-                                    <input type="text" id="title" name="title" class="form-control" value="{{ $home->title }}" placeholder="Title">
+                                    <input type="text" id="title" name="title" class="form-control" value="{{ isset($home->title) ? $home->title : 'Enter Your Title' }}" placeholder="Title">
                                     @error('title')
                                         <div class="alert alert-outline-secondary" role="alert">
                                             <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
@@ -384,7 +384,7 @@
 
                                 <div class="col-6 mb-20">
                                     <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control" value="{{ $home->email }}" placeholder="Email">
+                                    <input type="email" id="email" name="email" class="form-control" value="{{ isset($home->email) ? $home->email : 'Enter Your Email' }}" placeholder="Email">
                                     @error('email')
                                         <div class="alert alert-outline-secondary" role="alert">
                                             <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
@@ -394,7 +394,7 @@
 
                                 <div class="col-6 mb-20">
                                     <label for="phone">Phone Number</label>
-                                    <input type="phone" id="phone" name="phone" class="form-control" value="{{ $home->phone }}" placeholder="Phone Number">
+                                    <input type="phone" id="phone" name="phone" class="form-control" value="{{ isset($home->phone) ? $home->phone : 'Enter Your Phone Number' }}" placeholder="Phone Number">
                                     @error('phone')
                                         <div class="alert alert-outline-secondary" role="alert">
                                             <i class="zmdi zmdi-info"></i><strong class="alert-link">{{ $message }}</strong>
