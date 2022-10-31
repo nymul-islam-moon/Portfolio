@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ControllMacAddress extends Model
 {
     use HasFactory;
-    protected $table = 'controll_mac_addresses';
+    protected $table = 'admin_mac_address';
 }

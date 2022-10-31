@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('controll_mac_addresses', function (Blueprint $table) {
+        Schema::create('admin_mac_address', function (Blueprint $table) {
             $table->id();
             $table->string('mac_address')->nullable();
             $table->timestamps();

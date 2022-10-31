@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $home = home::all()->first();
+
         return view('admin.home.index', compact('home'));
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\ControllMacAddress;
 use Closure;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
@@ -17,13 +18,12 @@ class RestricMacMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $macAddrecess = ['0A-00-27-00-00-13'];
 
         $macAddr = explode(" ",exec('getmac'));
 
+        $count = ControllMacAddress::whereIn('mac_address', $macAddr)->count();
 
-
-        if(!in_array($macAddr[0], $macAddrecess)){
+        if($count == 0){
             abort(403, 'You are restricted to access this area');
         }
 
