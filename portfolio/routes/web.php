@@ -18,7 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(HomeController::class)->prefix('home')->group(function () {
-    Route::get('/', 'index')->name('admin.home.index');
-    Route::post('/submit', 'submit')->name('admin.home.submit');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'AllowMac'], function () {
+
+    Route::controller(HomeController::class)->prefix('/home')->group(function () {
+        Route::get('/', 'index')->name('admin.home.index');
+        Route::post('/submit', 'submit')->name('admin.home.submit');
+    });
+
 });
